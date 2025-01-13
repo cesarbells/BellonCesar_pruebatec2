@@ -22,5 +22,5 @@ Aplicación para gestionar los turnos solicitados por los ciudadanos para realiz
 <li>Servidor de aplicaciones compatible con JSP (por ejemplo, Apache Tomcat).</li>
 <li>NetBeans 17 (opcional para edición y desarrollo).</li>
 </ul>
-<h1>>Manual de usuario:</h1>
+<h1>Manual de usuario:</h1>
 https://github.com/cesarbells/BellonCesar_pruebatec2.wiki.git
