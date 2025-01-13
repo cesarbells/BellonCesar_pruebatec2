@@ -44,89 +44,12 @@
     </div>
   </div>
 </nav>
-        <h2>Gestión de Turnos</h2>
+      
 
-        <!-- Mensajes de error o éxito -->
-        <div class="mt-3">
-            <% 
-                String mensaje = (String) request.getAttribute("mensaje");
-                if (mensaje != null) {
-            %>
-                <div class="alert alert-success">
-                    <%= mensaje %>
-                </div>
-            <% 
-                }
-                String error = (String) request.getAttribute("error");
-                if (error != null) {
-            %>
-                <div class="alert alert-danger">
-                    <%= error %>
-                </div>
-            <% 
-                }
-            %>
-        </div>
-
-        <!-- Tabla de Turnos Registrados -->
-        <div class="table-responsive mt-4">
-            <h4>Lista de Turnos</h4>
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Número de Turno</th>
-                        <th>Fecha</th>
-                        <th>Descripción</th>
-                        <th>Estado</th>
-                        <th>Ciudadano</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <% 
-                List<Turno> turnos = (List<Turno>) request.getAttribute("turnos");
-                if (turnos != null && !turnos.isEmpty()) {
-                    for (Turno turno : turnos) {
-                %>
-                    <tr>
-                        <td><%= turno.getId() %></td>
-                        <td><%= turno.getNumeroTurno() %></td>
-                        <td><%= turno.getFecha() %></td>
-                        <td><%= turno.getDescripcion() %></td>
-                        <td><%= turno.getEstadoTurno() %></td>
-                        <td>
-                            <%= turno.getCiudadano() != null 
-                                ? turno.getCiudadano().getNombre() + " " + turno.getCiudadano().getApellidos()
-                                : "Sin asignar" %>
-                        </td>
-                        <td>
-                            <form action="SvEditarTurno" method="GET" style="display:inline;">
-                                <input type="hidden" name="id" value="<%= turno.getId() %>">
-                                <button type="submit" class="btn btn-warning btn-sm">Editar</button>
-                            </form>
-                            <form action="SvEliminarTurno" method="GET" style="display:inline;">
-                                <input type="hidden" name="id" value="<%= turno.getId() %>">
-                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                <% 
-                    }
-                } else {
-                %>
-                    <tr>
-                        <td colspan="7" class="text-center">No hay turnos registrados.</td>
-                    </tr>
-                <% 
-                }
-                %>
-                </tbody>
-            </table>
-        </div>
+       
 
         <!-- Formulario de Edición -->
-        <div class="mt-5">
+        <div class="mt-3">
             <h4>Editar Turno</h4>
             <%
                 Turno turno = (Turno) request.getAttribute("turno");

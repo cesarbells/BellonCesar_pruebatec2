@@ -56,7 +56,7 @@ public class CiudadanoJpaController implements Serializable {
             if (msg == null || msg.length() == 0) {
                 Long id = ciudadano.getId();
                 if (findCiudadano(id) == null) {
-                    throw new NonexistentEntityException("The ciudadano with id " + id + " no longer exists.");
+                    throw new NonexistentEntityException("El ciudadano con  id " + id + " ya no exite .");
                 }
             }
             throw ex;
@@ -77,7 +77,7 @@ public class CiudadanoJpaController implements Serializable {
                 ciudadano = em.getReference(Ciudadano.class, id);
                 ciudadano.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The ciudadano with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("El ciudadano con  " + id + " ya no existe.", enfe);
             }
             em.remove(ciudadano);
             em.getTransaction().commit();

@@ -56,7 +56,7 @@ public class TurnoJpaController implements Serializable {
             if (msg == null || msg.length() == 0) {
                 Long id = turno.getId();
                 if (findTurno(id) == null) {
-                    throw new NonexistentEntityException("The turno with id " + id + " no longer exists.");
+                    throw new NonexistentEntityException("El turno con id " + id + " ya no existe.");
                 }
             }
             throw ex;
@@ -77,7 +77,7 @@ public class TurnoJpaController implements Serializable {
                 turno = em.getReference(Turno.class, id);
                 turno.getId();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The turno with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("El turno con id " + id + " ya no existe.", enfe);
             }
             em.remove(turno);
             em.getTransaction().commit();

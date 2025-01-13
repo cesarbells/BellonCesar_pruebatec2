@@ -88,7 +88,7 @@ public class SvEditarCiudadano extends HttpServlet {
                 request.getRequestDispatcher("crearCiudadano.jsp").forward(request, response);
             } else {
                 // Manejar caso de ciudadano no encontrado
-                request.setAttribute("error", "No se encontrÃ³ el ciudadano con ID: " + id);
+                request.setAttribute("error", "No se encuentra el ciudadano con ID: " + id);
                 request.getRequestDispatcher("error.jsp").forward(request, response);
             }
         } catch (NumberFormatException e) {
